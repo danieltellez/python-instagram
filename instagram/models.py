@@ -96,6 +96,7 @@ class Media(ApiModel):
 
         new_media.comment_count = entry['comments']['count']
         new_media.comments = []
+        # https://github.com/andykamath/python-instagram/commit/6ed1cb542cb53440507db9f0ae83a13349579501
         if 'data' in entry['comments']:
             for comment in entry['comments']['data']:
                 new_media.comments.append(Comment.object_from_dictionary(comment))
